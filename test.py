@@ -1,13 +1,11 @@
-    __author__ = 'cm'
+__author__ = 'cm'
+import  os
 #! usr/bin/python
 import math
+from functools import reduce
 L = [['Apple', 'Google', 'Microsoft'],
     ['Java', 'Python', 'Ruby', 'PHP'],
     ['Adam', 'Bart', 'Lisa']]
-print L[0][0]
-print L[1][1]
-print L[2][2]
-
 def quadratic(a,b,c):
     if a == 0:
         return False
@@ -22,17 +20,22 @@ def power(x=3,n=2):
             n = n - 1
             s = s*x
         return s
+def f(x):
+    return x[:1].upper() + x[1:].lower()
 
+def chengfa(x,y):
+    return x*y
+
+def prod(*E):
+    return  reduce(chengfa,L)
+def normalize(*names):
+    r = map(f,names)
+    print list(r)
 if __name__ =='__main__':
-    # quadratic(2,3,1)
-   # quadratic(1,3,-4)
-   #  print power(5,2)
-   #  print power(6)
-    #print power(n=3)
-    L = list(range(100))
-    print L
-    print L[:10]
-    print L[-10:]
-    print L[10:20]
-    print L[:10:2]
-    print L[::5]
+    L1 = ['adam', 'LISA', 'barT']
+    L2 = list(map(f,L1))
+    print L2
+    L =[3,5]
+    print prod(L)
+
+
